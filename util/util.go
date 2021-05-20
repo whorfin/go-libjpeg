@@ -3,49 +3,30 @@ package util
 
 import (
 	"bufio"
-	"fmt"
 	"image"
 	"image/png"
 	"io"
 	"io/ioutil"
 	"os"
 	"path/filepath"
-	"strings"
 )
 
 // SubsampledImages contains example images which have subsampling colors.
 var SubsampledImages = []string{
-	"checkerboard_444.jpg",
-	"checkerboard_440.jpg",
-	"checkerboard_422.jpg",
-	"checkerboard_420.jpg",
-}
-
-// GetExFilePath returns the path of specified example file.
-func GetExFilePath(name string) string {
-	for _, gopath := range strings.Split(os.Getenv("GOPATH"), ":") {
-		path := filepath.Join(gopath, "src/github.com/whorfin/go-libjpeg/testdata/images", name)
-		if _, err := os.Stat(path); err == nil {
-			return path
-		}
-	}
-	panic(fmt.Errorf("%v does not exist in any directory which contains in $GOPATH", name))
+	"../testdata/images/checkerboard_444.jpg",
+	"../testdata/images/checkerboard_440.jpg",
+	"../testdata/images/checkerboard_422.jpg",
+	"../testdata/images/checkerboard_420.jpg",
 }
 
 // GetOutFilePath returns the path of specified out file.
 func GetOutFilePath(name string) string {
-	for _, gopath := range strings.Split(os.Getenv("GOPATH"), ":") {
-		path := filepath.Join(gopath, "src/github.com/whorfin/go-libjpeg/testdata/out")
-		if _, err := os.Stat(path); err == nil {
-			return filepath.Join(path, name)
-		}
-	}
-	panic(fmt.Errorf("out directory does not exist in any directory which contains in $GOPATH"))
+    return filepath.Join("../testdata/out", name)
 }
 
 // OpenFile opens specified example file
 func OpenFile(name string) (io io.Reader) {
-	io, err := os.Open(GetExFilePath(name))
+	io, err := os.Open(name)
 	if err != nil {
 		panic(err)
 	}
@@ -54,7 +35,7 @@ func OpenFile(name string) (io io.Reader) {
 
 // ReadFile reads and returns data bytes of specified example file.
 func ReadFile(name string) (data []byte) {
-	data, err := ioutil.ReadFile(GetExFilePath(name))
+	data, err := ioutil.ReadFile(name)
 	if err != nil {
 		panic(err)
 	}

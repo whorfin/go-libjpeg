@@ -37,6 +37,7 @@ import (
 	"fmt"
 	"image"
 	"image/color"
+        "path"
 	"testing"
 
 	"github.com/whorfin/go-libjpeg/jpeg"
@@ -82,7 +83,7 @@ Loop:
 			continue
 		}
 
-		util.WritePNG(img, fmt.Sprintf("TestDecode_testdata_%s.png", it.filename[len("testdata/"):]))
+		util.WritePNG(img, fmt.Sprintf("TestDecode_testdata_%s.png", path.Base(it.filename)))
 
 		ref, _, err := image.Decode(util.OpenFile(it.refFilename))
 		if err != nil {

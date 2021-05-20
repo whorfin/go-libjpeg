@@ -9,6 +9,7 @@ import (
 	nativeJPEG "image/jpeg"
 	"io/ioutil"
 	"os"
+	"path"
 	"testing"
 
 	"github.com/whorfin/go-libjpeg/jpeg"
@@ -103,7 +104,7 @@ func TestDecode(t *testing.T) {
 			t.Errorf("Got Error: %v", err)
 		}
 
-		util.WritePNG(img, fmt.Sprintf("TestDecode_%s.png", file))
+		util.WritePNG(img, fmt.Sprintf("TestDecode_%s.png", path.Base(file)))
 	}
 }
 
@@ -123,7 +124,7 @@ func TestDecodeScaled(t *testing.T) {
 			t.Errorf("Wrong scaled height: %v, expect: 192 (=768/8)", got)
 		}
 
-		util.WritePNG(img, fmt.Sprintf("TestDecodeScaled_%s.png", file))
+		util.WritePNG(img, fmt.Sprintf("TestDecodeScaled_%s.png", path.Base(file)))
 	}
 }
 
@@ -142,7 +143,7 @@ func TestDecodeIntoRGBA(t *testing.T) {
 			continue
 		}
 
-		util.WritePNG(img, fmt.Sprintf("TestDecodeIntoRGBA_%s.png", file))
+		util.WritePNG(img, fmt.Sprintf("TestDecodeIntoRGBA_%s.png", path.Base(file)))
 	}
 }
 
@@ -167,7 +168,7 @@ func TestDecodeScaledIntoRGBA(t *testing.T) {
 			t.Errorf("Wrong scaled height: %v, expect: 192 (=768/8)", got)
 		}
 
-		util.WritePNG(img, fmt.Sprintf("TestDecodeIntoRGBA_%s.png", file))
+		util.WritePNG(img, fmt.Sprintf("TestDecodeIntoRGBA_%s.png", path.Base(file)))
 	}
 }
 
@@ -187,7 +188,7 @@ func TestDecodeScaledIntoRGB(t *testing.T) {
 			t.Errorf("Wrong scaled height: %v, expect: 192 (=768/8)", got)
 		}
 
-		util.WritePNG(img, fmt.Sprintf("TestDecodeIntoRGB_%s.png", file))
+		util.WritePNG(img, fmt.Sprintf("TestDecodeIntoRGB_%s.png", path.Base(file)))
 	}
 }
 
@@ -201,7 +202,7 @@ func TestDecodeSubsampledImage(t *testing.T) {
 			t.Errorf("Got Error: %v", err)
 		}
 
-		util.WritePNG(img, fmt.Sprintf("TestDecodeSubsampledImage_%s.png", file))
+		util.WritePNG(img, fmt.Sprintf("TestDecodeSubsampledImage_%s.png", path.Base(file)))
 	}
 }
 
@@ -216,7 +217,7 @@ func TestDecodeAndEncode(t *testing.T) {
 		}
 
 		// Create output file
-		f, err := os.Create(util.GetOutFilePath(fmt.Sprintf("TestDecodeAndEncode_%s", file)))
+		f, err := os.Create(util.GetOutFilePath(fmt.Sprintf("TestDecodeAndEncode_%s", path.Base(file))))
 		if err != nil {
 			panic(err)
 		}
@@ -243,7 +244,7 @@ func TestDecodeAndEncodeSubsampledImages(t *testing.T) {
 		}
 
 		// Create output file
-		f, err := os.Create(util.GetOutFilePath(fmt.Sprintf("TestDecodeAndEncodeSubsampledImages_%s", file)))
+		f, err := os.Create(util.GetOutFilePath(fmt.Sprintf("TestDecodeAndEncodeSubsampledImages_%s", path.Base(file))))
 		if err != nil {
 			panic(err)
 		}
