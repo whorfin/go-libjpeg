@@ -1,8 +1,13 @@
 go-libjpeg
 ==========
 
-[![GoDoc](https://godoc.org/github.com/pixiv/go-libjpeg/jpeg?status.svg)](https://godoc.org/github.com/pixiv/go-libjpeg/jpeg)
-[![Build Status](https://travis-ci.org/pixiv/go-libjpeg.svg?branch=master)](https://travis-ci.org/pixiv/go-libjpeg)
+[![GoDoc](https://godoc.org/github.com/whorfin/go-libjpeg/jpeg?status.svg)](https://godoc.org/github.com/whorfin/go-libjpeg/jpeg)
+[![Build Status](https://travis-ci.org/whorfin/go-libjpeg.svg?branch=master)](https://travis-ci.org/whorfin/go-libjpeg)
+
+A fork of the wonderful [Pixiv go-libjpeg](http://github.com/pixiv/go-libjpeg) with some updates to 
+support pkg-config finding of libjpeg/libjpeg-turbo and support for direct image.NRGBA format.
+A handful of updates from across the github fork-scape also added.
+What do:
 
 An implementation of Go binding for LibJpeg (preferably libjpeg-turbo).
 
@@ -12,7 +17,7 @@ and rewritten to compatible with image.Image interface.
 ## Usage
 
 ```
-import "github.com/pixiv/go-libjpeg/jpeg"
+import "github.com/whorfin/go-libjpeg/jpeg"
 
 func main() {
     // Decoding JPEG into image.Image

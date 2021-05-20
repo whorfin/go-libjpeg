@@ -39,8 +39,8 @@ import (
 	"image/color"
 	"testing"
 
-	"github.com/pixiv/go-libjpeg/jpeg"
-	"github.com/pixiv/go-libjpeg/test/util"
+	"github.com/whorfin/go-libjpeg/jpeg"
+	"github.com/whorfin/go-libjpeg/util"
 )
 
 type imageTest struct {
@@ -50,12 +50,12 @@ type imageTest struct {
 }
 
 var imageTests = []imageTest{
-	{"testdata/video-001.221212.png", "testdata/video-001.221212.jpeg", 8 << 8},
-	// {"testdata/video-001.cmyk.png", "testdata/video-001.cmyk.jpeg", 8 << 8},
-	{"testdata/video-001.png", "testdata/video-001.jpeg", 8 << 8},
-	{"testdata/video-001.png", "testdata/video-001.progressive.jpeg", 8 << 8},
-	{"testdata/video-001.png", "testdata/video-001.rgb.jpeg", 8 << 16},
-	{"testdata/video-005.gray.png", "testdata/video-005.gray.jpeg", 8 << 8},
+	{"../testdata/images/testdata/video-001.221212.png", "../testdata/images/testdata/video-001.221212.jpeg", 8 << 8},
+	// {"../testdata/images/testdata/video-001.cmyk.png", "../testdata/images/testdata/video-001.cmyk.jpeg", 8 << 8},
+	{"../testdata/images/testdata/video-001.png", "../testdata/images/testdata/video-001.jpeg", 8 << 8},
+	{"../testdata/images/testdata/video-001.png", "../testdata/images/testdata/video-001.progressive.jpeg", 8 << 8},
+	{"../testdata/images/testdata/video-001.png", "../testdata/images/testdata/video-001.rgb.jpeg", 8 << 16},
+	{"../testdata/images/testdata/video-005.gray.png", "../testdata/images/testdata/video-005.gray.jpeg", 8 << 8},
 }
 
 func withinTolerance(c0, c1 color.Color, tolerance int) bool {

@@ -11,20 +11,20 @@ import (
 	"os"
 	"testing"
 
-	"github.com/pixiv/go-libjpeg/jpeg"
-	"github.com/pixiv/go-libjpeg/test/util"
+	"github.com/whorfin/go-libjpeg/jpeg"
+	"github.com/whorfin/go-libjpeg/util"
 )
 
 var naturalImageFiles = []string{
-	"cosmos.jpg",
-	"kinkaku.jpg",
+	"../testdata/images/cosmos.jpg",
+	"../testdata/images/kinkaku.jpg",
 }
 
 var subsampledImageFiles = []string{
-	"checkerboard_444.jpg",
-	"checkerboard_440.jpg",
-	"checkerboard_422.jpg",
-	"checkerboard_420.jpg",
+	"../testdata/images/checkerboard_444.jpg",
+	"../testdata/images/checkerboard_440.jpg",
+	"../testdata/images/checkerboard_422.jpg",
+	"../testdata/images/checkerboard_420.jpg",
 }
 
 func TestMain(m *testing.M) {
